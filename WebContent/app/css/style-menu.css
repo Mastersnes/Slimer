@@ -1,0 +1,124 @@
+/**
+* Menu
+**/
+.bebel {
+	z-index : 10000;
+	background-color : white;
+	background-image: url("../img/menu/bebel.png");
+	background-repeat: no-repeat;
+	background-size: 50% 50%;
+	background-position: 50% 50%;
+}
+
+/**
+* Menu
+**/
+.menu-page {
+	background-image: url("../img/background.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.menu-cadre {
+	width: 75%;
+	height: 80%;
+}
+
+ul.menu {
+	display: block;
+}
+ul.menu > li {
+	display: block;
+	text-align: center;
+	font-size: 2em;
+	font-family: fantasy;
+	
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+ul.menu > li:nth-child(n+2)  {
+	margin-top: 2%;
+}
+
+ul.menu > li {
+	cursor: pointer;
+	
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	
+	position: relative;
+	
+	-webkit-transition: background 2s;
+	transition: background 2s;
+}
+
+ul.menu > li:hover {
+	background: #f2f9fe;
+	background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+}
+
+ul.popup-menu {
+	display: block;
+}
+ul.popup-menu > li {
+	display: block;
+	text-align: center;
+	
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+ul.popup-menu > li {
+	cursor: pointer;
+	
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	
+	position: relative;
+	
+	-webkit-transition: background 2s;
+	transition: background 2s;
+}
+
+ul.popup-menu > li:hover {
+	background: #f2f9fe;
+	background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+}
+
+.popup .close {
+	width: 30px; height: 30px;
+	position: absolute;
+	top: -18vh;
+	right: -7vw;
+	background-image: url("../img/menu/croix.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	opacity : 1;
+}
+
+.flag-container {
+	height: 40%;
+}
+.flag {
+	cursor: pointer;
+	display: inline-block;
+	width: 225px; height: 150px;
+	background-repeat: no-repeat;
+	background-size: 100% 100%; 
+}
+.flag.fr {
+	background-image: url("../img/menu/flag/fr.jpg");
+}
+.flag.en {
+	background-image: url("../img/menu/flag/en.jpg");
+}

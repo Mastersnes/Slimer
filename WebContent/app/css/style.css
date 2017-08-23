@@ -1,0 +1,81 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: inline-block;
+}
+ul li {
+	display: inline-block;
+}
+.page {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+}
+.footer {
+	position: absolute;
+	width: 100vw;
+	bottom: 0;
+}
+.h-center {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+}
+.v-center {
+	margin-top: 50vh;
+    transform: translateY(-50%);
+}
+.clickable {
+	cursor: pointer;
+}
+
+/**
+* Popup
+**/
+.popup {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	
+	background-image: url("../img/menu/popup.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	
+	top: 0;
+	display: none;
+}
+.popup > .content {
+	width: 70%;
+	height: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50vh;
+	transform: translateY(-50%);
+	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=99)";/* IE 8 */
+	filter: alpha(opacity=99);/* IE 5-7 */
+	-moz-opacity: 0.99;/* Netscape */
+	-khtml-opacity: 0.99;/* Safari 1.x */
+	opacity: 0.99;/* Good browsers */
+	
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+}
+.popup > .content > .texte {
+	font-size: 1.7em;
+	font-family: fantasy;
+	text-align: center;
+	margin-top: 60vh;
+	width: 65vw;
+}
