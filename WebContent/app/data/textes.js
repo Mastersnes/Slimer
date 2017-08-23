@@ -48,9 +48,9 @@ define(["jquery"], function($){
 			fr : "Point",
 			en : "Point"
 		},
-		"deathNb" : {
-			fr : "Compteur de mort",
-			en : "Death counter"
+		"nbrSlime" : {
+		    fr : "Nombre de slime",
+		    en : "Slime number"
 		},
 		"end0" : {
 			fr : "F&eacute;licitation, vous avez termin&eacute; le jeu avec : <span id='point'></span> Points",
