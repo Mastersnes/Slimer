@@ -108,11 +108,12 @@ ul.popup-menu > li:hover {
 
 .flag-container {
 	height: 40%;
+	width: 100%;
 }
 .flag {
 	cursor: pointer;
 	display: inline-block;
-	width: 225px; height: 150px;
+	width: 45%; height: 100%;
 	background-repeat: no-repeat;
 	background-size: 100% 100%; 
 }
