@@ -1,0 +1,145 @@
+#cinematique {
+	cursor : pointer;
+	z-index: 10000;
+	background-color: black;
+}
+
+#cinematique .case {
+    position: absolute;
+	background-repeat: no-repeat;
+	background-size : 100% 100%;
+	transition:all 0.5s ease;
+}
+
+/**
+* Intro
+**/
+#cinematique .case#c1 {
+	background-image: url("../img/cinematique/1.jpg");
+}
+#cinematique .case#c2 {
+	background-image: url("../img/cinematique/2.jpg");
+}
+#cinematique .case#c3 {
+	background-image: url("../img/cinematique/3.jpg");
+}
+#cinematique .case#c4 {
+	background-image: url("../img/cinematique/4.jpg");
+}
+#cinematique .case#c5 {
+	background-image: url("../img/cinematique/5.jpg");
+}
+#cinematique .case#c6 {
+	background-image: url("../img/cinematique/6.jpg");
+}
+#cinematique .case#c7 {
+	background-image: url("../img/cinematique/7.jpg");
+}
+#cinematique .case#c8 {
+	background-image: url("../img/cinematique/8.jpg")
+}
+
+#portrait {
+	position: absolute;
+	left: -100px; top: -100px;
+	width: 0px; height: 0px;
+}
+
+/**
+* Controles responsive
+**/
+@media screen and (orientation:portrait) {
+    #portrait {display: block;}
+    #cinematique .case {
+        display: none;
+        left : 2%;
+        width: 96%;
+        height: 30%;
+    }
+    
+    #cinematique .case#c1 {top : 3%;}
+    #cinematique .case#c2 {top : 35%;}
+    #cinematique .case#c3 {top : 67%;}
+    #cinematique .case#c4 {top : 3%;}
+    #cinematique .case#c5 {top : 35%;}
+    #cinematique .case#c6 {top : 67%;}
+    #cinematique .case#c7 {top : 3%;}
+    #cinematique .case#c8 {top : 35%;}
+}
+@media screen and (orientation:landscape) {
+    #portrait {display: none;}
+    
+    #cinematique .case#c1 {
+        width: 30%; height: 30%;
+        left : 2%; top : 3%;
+    }
+    
+    #cinematique .case#c2{
+        width: 0%; height: 0%;
+        left : 5%; top : 36%;
+    }
+    #cinematique .case#c2.visible {width: 50%; height: 50%;}
+    
+    #cinematique .case#c3{
+        width: 0%; height: 42%;
+        left : 57%; top : 22%;
+    }
+    #cinematique .case#c3.visible {width: 42%}
+    
+    #cinematique .case#c4{
+        width: 46%; height: 46%;
+        left : 1%; top : 25%;
+        display: none;
+    }
+    #cinematique .case#c4.visible {display: block;}
+    
+    #cinematique .case#c5{
+        width: 46%; height: 46%;
+        left : 51%; top : 25%;
+        display: none;
+    }
+    #cinematique .case#c5.visible {display: block;}
+    
+    #cinematique .case#c6{
+        width: 70%; height: 70%;
+        left : 15%; top : 15%;
+        transform: scale(0);
+    }
+    #cinematique .case#c6.visible {transform: scale(1);}
+    
+    #cinematique .case#c7{
+        width: 70%; height: 70%;
+        left : 15%; top : -100%;
+    }
+    #cinematique .case#c7.visible {top: 15%}
+    
+    #cinematique .case#c8{
+        width: 70%; height: 70%;
+        left : -100%; top : 15%;
+    }
+    #cinematique .case#c8.visible {left: 15%}
+}
+
+.drama {
+    animation: drama 2s cubic-bezier(.36,.07,.19,.97) both;
+    transform: scale(1);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+@keyframes drama {
+  10%, 90% {
+    transform: scale(1.2);
+  }
+  
+  20%, 80% {
+    transform: scale(1.5);
+  }
+
+  30%, 50%, 70% {
+    transform: scale(1.8);
+  }
+
+  40%, 60% {
+    transform: scale(2);
+  }
+}
