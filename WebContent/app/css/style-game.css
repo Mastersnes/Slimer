@@ -3,11 +3,10 @@
 * Game
 **/
 .game {
-	background-image: url("../img/game/background.jpg"); */
+	background-image: url("../img/game/background.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
-
 
 /**
 * Slime
@@ -20,23 +19,51 @@
 	background-size : 100% 100%;
 	width: 50; height: 50;
 }
+.slime.dead {
+	z-index: 9;
+	background-image: url("../img/game/interface/+1.png");
+}
 .slime.type1 {
-	background-image: url("../img/game/slime1.png");
+	background-image: url("../img/game/slime/slime1.png");
+}
+.slime.explode1 {
+	background-image: url("../img/game/slime/explode1.png");
 }
 .slime.type2 {
-	background-image: url("../img/game/slime2.png");
+	background-image: url("../img/game/slime/slime2.png");
+}
+.slime.explode2 {
+	background-image: url("../img/game/slime/explode2.png");
 }
 .slime.type3 {
-	background-image: url("../img/game/slime3.png");
+	background-image: url("../img/game/slime/slime3.png");
+}
+.slime.explode3 {
+	background-image: url("../img/game/slime/explode3.png");
 }
 .slime.type4 {
-	background-image: url("../img/game/slime4.png");
+	background-image: url("../img/game/slime/slime4.png");
+}
+.slime.explode4 {
+	background-image: url("../img/game/slime/explode4.png");
 }
 .slime.type5 {
-	background-image: url("../img/game/slime5.png");
+	background-image: url("../img/game/slime/slime5.png");
+}
+.slime.explode5 {
+	background-image: url("../img/game/slime/explode5.png");
 }
 .slime.type6 {
-	background-image: url("../img/game/slime6.png");
+	background-image: url("../img/game/slime/slime6.png");
+}
+.slime.explode6 {
+	background-image: url("../img/game/slime/explode6.png");
+}
+.slime.type7 {
+	background-image: url("../img/game/slime/slime7.png");
+}
+.slime.explode7 {
+	background-image: url("../img/game/slime/explode7.png");
 }
 
 /**
@@ -47,17 +74,6 @@
 	font-size : 2em;
 	max-width: 100%;
 	word-wrap: break-word;
-}
-.point {
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-.slimeRest {
-	position: absolute;
-	right: 0;
-	text-align: right;
-	top: 0;
 }
 .preload {
 	position: absolute;
@@ -86,4 +102,36 @@
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+
+/**
+* Didactitiel
+**/
+.cible {
+	display: none;
+	position: absolute;
+	z-index: 9;
+	background-color: salmon;
+	border-radius : 100%;
+	width: 60; height: 60;
+}
+.didactitiel {
+	display: none;
+	z-index: 9;
+	text-align: center;
+}
+.didactitiel .text {
+	top : -4%;
+}
+
+.hitbox {
+	position: absolute;
+	z-index: 9;
+	opacity: 0.8;
+}
+.hitbox.explosion {
+	background-color: red;
+}
+.hitbox.exploser {
+	background-color: white;
 }

@@ -1,10 +1,21 @@
 <div class="game page">
     <div class="point">
-        <div class="text"><%=data.text.get("point")%> : <span id="hit"></span></div>
+        <div class="text"><div title="<%=data.text.get('point')%>" class="img"></div><span id="hit"></span></div>
+    </div>
+    <div class="buffMessage h-center v-center">
     </div>
     <div class="slimeRest">
-        <div class="text"><%=data.text.get("nbrSlime")%> : <span id="nbrSlime"></span> / <span id="maxSlime"></span></div>
+        <div class="text"><span id="nbrSlime"></span> / <span id="maxSlime"></span><div class="img" title="<%=data.text.get('nbrSlime')%>"></div></div>
     </div>
+    <ul class="buffs">
+    </ul>
+    <div class="cible"></div>
+    <div class="hitbox explosion"></div>
+    <div class="hitbox exploser"></div>
+</div>
+
+<div class="page didactitiel">
+	<div class="text h-center v-center"></div>
 </div>
 
 <div class="page row" id="cinematique">

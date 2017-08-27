@@ -1,7 +1,7 @@
 #cinematique {
 	cursor : pointer;
 	z-index: 10000;
-	background-color: black;
+	background-color: dimgray;
 }
 
 #cinematique .case {
@@ -121,25 +121,15 @@
 }
 
 .drama {
-    animation: drama 2s cubic-bezier(.36,.07,.19,.97) both;
+    animation-name: drama;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    
     transform: scale(1);
     backface-visibility: hidden;
     perspective: 1000px;
 }
 @keyframes drama {
-  10%, 90% {
-    transform: scale(1.2);
-  }
-  
-  20%, 80% {
-    transform: scale(1.5);
-  }
-
-  30%, 50%, 70% {
-    transform: scale(1.8);
-  }
-
-  40%, 60% {
-    transform: scale(2);
-  }
+  from {transform: scale(1);}
+  to {transform: scale(2);}
 }

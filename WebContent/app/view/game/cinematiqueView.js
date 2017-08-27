@@ -22,7 +22,6 @@ function($, _, Utils) {
 		
 		this.next = function() {
 			this.current++;
-			console.log("next : ", this.current);
 			if (this.isEmpty()) {
 				$(this.el).fadeOut("slow");
 			}else {

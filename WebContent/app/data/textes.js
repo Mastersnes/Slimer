@@ -2,7 +2,7 @@
 define(["jquery"], function($){
 	var data = {
 		/**
-		 * Plateformes
+		 * Textes
 		 */
 		"newGame" : {
 			fr : "Nouvelle partie",
@@ -52,6 +52,18 @@ define(["jquery"], function($){
 		    fr : "Nombre de slime",
 		    en : "Slime number"
 		},
+		"bonus-x2" : {
+			fr : "Bonus x2, avez-vous encore faim ?",
+			en : "Bonus x2, are you still hungry ?"
+		},
+		"one-shot" : {
+			fr : "One Shot ! Un tir, un mort !",
+			en : "One Shot, One Die ! "
+		},
+		"boom" : {
+			fr : "Boom ! les rouges explosent !",
+			en : "Boom ! The reds explode !"
+		},
 		"end0" : {
 			fr : "F&eacute;licitation, vous avez termin&eacute; le jeu avec : <span id='point'></span> Points",
 			en : "Congratulations, you won with : <span id='point'></span> Points"
@@ -71,6 +83,26 @@ define(["jquery"], function($){
 		"end4" : {
 			fr : "D&eacute;couvrez nos autres jeux sur notre <a target='_blank' alt='Site internet' href='http://lesjeuxdebebel.fr.nf/Bebel'>Site internet</a>.",
 			en : "Discover our other games on our <a target='_blank' alt='Website' href='http://lesjeuxdebebel.fr.nf/Bebel'>Website</a>."
+		},
+		"didactitiel1" : {
+			fr : "Ça, là, c'est une glaire. Essayez de cliquer dessus.",
+			en : "There, is a slime. Try to click on it."
+		},
+		"didactitiel2" : {
+			fr : "C'est un peu gluant, hein ? Elle est réapparue à un autre endroit ! Cliquez dessus de nouveau.",
+			en : "It's a little sticky, huh ? It reappeared somewhere else ! Click on it again."
+		},
+		"didactitiel3" : {
+			fr : "Si vous tuez le petit slime restant, vous gagnerez un point ! Essayez pour voir. =)",
+			en : "If you kill the little one remaining, you'll earn a point ! Try it to see. =)"
+		},
+		"didactitiel4" : {
+			fr : "Le début de la fortune ! Tuez 3 petites glaires de même couleur pour déclencher un combo !",
+			en : "The beginning of fortune ! Kill 3 little same color slime to trigger a combo !"
+		},
+		"didactitiel5" : {
+			fr : "Maintenant, vous pouvez stopper l'invasion ! Le monde compte sur vous !",
+			en : "Now you can stop the invasion ! The world relies on you !"
 		}
 	};
 	

@@ -1,0 +1,50 @@
+/**
+* Utils
+**/
+.buffMessage {
+	margin-top: 25vh;
+	z-index: 20;
+	position: absolute;
+	width: 800;
+	height: 400;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	transform: scale(0);
+	transition: all 0.5s;
+}
+
+.buffMessage.one-shot {
+	background-image: url("../img/game/buffMessage/one-shot.png");
+}
+.buffMessage.bonus-x2 {
+	background-image: url("../img/game/buffMessage/bonus-x2.png");
+}
+.buffMessage.boom {
+	background-image: url("../img/game/buffMessage/boom.png");
+}
+
+.buffs {
+	position: absolute;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+	top : 10%;
+	right: 1%;
+	text-align: right;
+	height: 90%;
+	width: 5%;
+}
+.buffs li {
+	width: 30; height: 30;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.buffs .bonus-x2 {
+	background-image: url("../img/game/buffs/x2.png");
+}
+.buffs .one-shot {
+	background-image: url("../img/game/buffs/one-shot.png");
+}
+.buffs .boom {
+	background-image: url("../img/game/buffs/boom.png");
+}
