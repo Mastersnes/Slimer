@@ -79,7 +79,13 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
     		        }
     		        slime.addClass("slime type"+type);
     		        slime.attr("type", type);
-    		        slime.attr("life", 3);
+    		        var slimeData = Slimes.get(type);
+    		        
+    		        var maxLife = 3;
+    		        if (slimeData.life) maxLife = slimeData.life;
+    		        
+    		        slime.attr("maxLife", maxLife);
+    		        slime.attr("life", maxLife);
     		        slime.css({
     		            left : x + "%",
     		            top : y + "%"
@@ -169,6 +175,7 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 		
 		this.hurtSlime = function(element, killClass) {
 			var life = parseInt(element.attr("life"));
+			var maxLife = parseInt(element.attr("maxLife"));
             life -= this.degats;
             
             if (this.delays["one-shot"]>0) life = 0;
@@ -206,7 +213,7 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
                 element.css({
 	                left : x + "%",
                     top : y + "%",
-	                "transform": "scale("+(life/3)+")"
+	                "transform": "scale("+(life/maxLife)+")"
 	            });
 	            if (this.didactitiel > 0) $(".cible").css({
 		    		left: (x-0.3) + "%",
@@ -239,7 +246,7 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 			var slime = Slimes.get(typeNumber);
 			if (this.combo.type == slime.type) {
 				this.combo.time++;
-				if (this.combo.time >= 0) {
+				if (this.combo.time >= 3) {
 					slime.action(this, element);
 					this.combo.type = null;
 					this.combo.time = 0;

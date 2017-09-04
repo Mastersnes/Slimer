@@ -7,7 +7,7 @@ define(["jquery"], function($){
 		"1" : {
 			type : "pink",
 			action : function(game) {
-				game.delays["one-shot"] = 100;
+				game.delays["one-shot"] = 200;
 				game.addBuff("one-shot");
 			}
 		},
@@ -32,7 +32,7 @@ define(["jquery"], function($){
 			type : "violet",
 			action : function(game) {
 				game.multiplicateur = 2;
-				game.delays["bonus-x2"] = 100;
+				game.delays["bonus-x2"] = 200;
 				game.addBuff("bonus-x2");
 			}
 		},
@@ -46,7 +46,7 @@ define(["jquery"], function($){
 			type : "red",
 			action : function(game) {
 				if (!game.delays["boom"] || game.delays["boom"] <= 0) {
-					game.delays["boom"] = 5000;
+					game.delays["boom"] = 200;
 					game.addBuff("boom");
 				}
 			}
