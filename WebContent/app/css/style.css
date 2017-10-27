@@ -58,7 +58,7 @@ ul li {
 }
 .popup > .content {
 	width: 70%;
-	height: 70%;
+	height: auto;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 50vh;
@@ -78,6 +78,5 @@ ul li {
 	font-size: 1.7em;
 	font-family: fantasy;
 	text-align: center;
-	margin-top: 60vh;
-	width: 65vw;
+	width: 100%;
 }

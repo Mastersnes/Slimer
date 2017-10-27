@@ -96,10 +96,10 @@ ul.popup-menu > li:hover {
 }
 
 .popup .close {
+    position: relative;
 	width: 30px; height: 30px;
-	position: absolute;
-	top: -18vh;
-	right: -7vw;
+    top: 7vh;
+    right: 7vw;
 	background-image: url("../img/menu/croix.png");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
@@ -107,7 +107,7 @@ ul.popup-menu > li:hover {
 }
 
 .flag-container {
-	height: 40%;
+	height: 30vh;
 	width: 100%;
 }
 .flag {

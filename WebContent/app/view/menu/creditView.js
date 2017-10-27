@@ -25,10 +25,13 @@ function($, _, Utils, page) {
 		};
 		
 		this.makeEvents = function() {
-			var that = this;
-			$(this.el).click(function() {
-				$(that.el).hide("slow");
-			});
+		    var that = this;
+            $(this.el).find(".close").click(function() {
+                $(that.el).hide("slow");
+            });
+            $("#deviant").click(function() {
+                window.open("https://lesjeuxdebebel.deviantart.com/", "_blank");
+            });
 		};
 		
 		this.show = function() {
