@@ -32,6 +32,18 @@ define(["jquery"], function($){
 			fr : "D&eacuteveloppement",
 			en : "Development"
 		},
+		"followUs" : {
+            fr : "Suivez-nous sur <a target='_blank' alt='Facebook' href='https://www.facebook.com/lesjeuxdebebel/'>Facebook</a> ou <a target='_blank' alt='Twitter' href='http://twitter.com/lesjeuxdebebel'>Twitter</a>.",
+            en : "Follow us on <a target='_blank' alt='Facebook' href='https://www.facebook.com/lesjeuxdebebel/'>Facebook</a> or <a target='_blank' alt='Twitter' href='http://twitter.com/lesjeuxdebebel'>Twitter</a>."
+        },
+        "followUs2" : {
+            fr : "Soutenez-nous sur <a target='_blank' alt='Tipeee' href='https://www.tipeee.com/les-jeux-de-bebel/'>Tipeee</a>.",
+            en : "Support us on <a target='_blank' alt='Tipeee' href='https://www.tipeee.com/les-jeux-de-bebel/'>Tipeee</a>."
+        },
+        "followUs3" : {
+            fr : "Nos autres jeux sur <a target='_blank' alt='Kongregate' href='http://www.kongregate.com/games/JeuxBebel'>Kongregate</a>.",
+            en : "Our other games on <a target='_blank' alt='Kongregate' href='http://www.kongregate.com/games/JeuxBebel'>Kongregate</a>."
+        },
 		"partenaires" : {
 			fr : "Partenaires",
 			en : "Partners"
@@ -86,7 +98,7 @@ define(["jquery"], function($){
 		},
 		"didactitiel1" : {
 			fr : "Ça, là, c'est une glaire. Essayez de cliquer dessus.",
-			en : "There, is a slime. Try to click on it."
+			en : "There, here, is a slime. Try to click on it."
 		},
 		"didactitiel2" : {
 			fr : "C'est un peu gluant, hein ? Elle est réapparue à un autre endroit ! Cliquez dessus de nouveau.",
