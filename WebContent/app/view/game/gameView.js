@@ -18,6 +18,7 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 		    this.el = $("#app");
 			this.Textes = Textes;
 			this.mediatheque = Mediatheque;
+			this.firstTime = true;
 			this.point = -1;
 			this.nbrSlime = -1;
 			this.maxSlime = 1000;
@@ -58,6 +59,10 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 		    var that = this;
 		    
 		    if (this.cinematique.isEmpty()) {
+		    	if (this.firstTime) {
+		    		this.mediatheque.play("/music/slimer.mp3");
+		    		this.firstTime = false;
+		    	}
 		    	var rand = 0;
 		    	if (this.randomPop) rand = Utils.rand(0, this.randMax);
     		    if (this.forcePop) {
