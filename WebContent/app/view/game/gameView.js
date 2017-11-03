@@ -18,6 +18,7 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 		    this.el = $("#app");
 			this.Textes = Textes;
 			this.mediatheque = Mediatheque;
+			this.kongregateUtils = parent.kongregateUtils;
 			this.firstTime = true;
 			this.point = -1;
 			this.nbrSlime = -1;
@@ -25,6 +26,7 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 			this.randMax = 100;
 			this.multiplicateur = 1;
 			this.degats = 1;
+			this.slimeKilled = 0;
 			this.delays = [];
 			this.endGame = false;
 			
@@ -32,7 +34,8 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 			
 			this.combo = {
 					type : null,
-					time : 0
+					time : 0,
+					nbTotal : 0
 			};
 			
 			this.render();
@@ -195,6 +198,8 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 	            }, 500);
             }
             if (life <= 0) {
+            	this.slimeKilled++;
+            	this.kongregateUtils.score("SlimeKill", this.slimeKilled);
                 this.addPoint();
                 this.addSlime(-1);
                 this.checkCombo(element);
@@ -251,12 +256,15 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 			var slime = Slimes.get(typeNumber);
 			if (this.combo.type == slime.type) {
 				this.combo.time++;
+				this.combo.nbTotal++;
+				this.kongregateUtils.score("NbCombo", this.combo.nbTotal);
 				if (this.combo.time >= 3) {
 					slime.action(this, element);
 					this.combo.type = null;
 					this.combo.time = 0;
 				}
 			}else {
+				this.combo.nbTotal = 0;
 				this.combo.type = slime.type;
 				this.combo.time = 1;
 			}
@@ -264,15 +272,18 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 		
 		this.addPoint = function() {
 			this.point += this.multiplicateur;
+			this.kongregateUtils.score("Point", this.point);
 			$("#hit").html(this.point);
 		};
 		
 		this.addSlime = function(nbr) {
 		    this.nbrSlime+=nbr;
+		    this.kongregateUtils.score("SlimeMax", this.nbrSlime);
 		    $("#nbrSlime").html(this.nbrSlime);
 		};
 
 		this.gameOver = function() {
+			this.kongregateUtils.score("GameOver", 1);
 			this.endGame = true;
 			$(".game").empty();
 		    

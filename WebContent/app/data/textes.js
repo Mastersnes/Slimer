@@ -4,6 +4,10 @@ define(["jquery"], function($){
 		/**
 		 * Textes
 		 */
+		"bienvenue" : {
+			fr : "Bienvenue",
+			en : "Wellcome"
+		},
 		"newGame" : {
 			fr : "Nouvelle partie",
 			en : "New Game"

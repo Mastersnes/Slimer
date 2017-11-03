@@ -7,6 +7,7 @@ define(["jquery"], function($){
 		"1" : {
 			type : "pink",
 			action : function(game) {
+				game.kongregateUtils.score("OneShot", 1);
 				game.delays["one-shot"] = 200;
 				game.addBuff("one-shot");
 			}
@@ -31,6 +32,7 @@ define(["jquery"], function($){
 		"5" : {
 			type : "violet",
 			action : function(game) {
+				game.kongregateUtils.score("BonusX2", 1);
 				game.multiplicateur = 2;
 				game.delays["bonus-x2"] = 200;
 				game.addBuff("bonus-x2");
@@ -45,6 +47,7 @@ define(["jquery"], function($){
 		"7" : {
 			type : "red",
 			action : function(game) {
+				game.kongregateUtils.score("Boom", 1);
 				if (!game.delays["boom"] || game.delays["boom"] <= 0) {
 					game.delays["boom"] = 200;
 					game.addBuff("boom");

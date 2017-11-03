@@ -1,4 +1,13 @@
 /**
+* Kongregate
+**/
+.username {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+/**
 * Menu
 **/
 .bebel {
