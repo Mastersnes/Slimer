@@ -8,6 +8,10 @@ define(["jquery"], function($){
 			fr : "Bienvenue",
 			en : "Wellcome"
 		},
+		"guest" : {
+			fr : "Invité",
+			en : "Guest"
+		},
 		"newGame" : {
 			fr : "Nouvelle partie",
 			en : "New Game"
