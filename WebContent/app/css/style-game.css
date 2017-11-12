@@ -9,64 +9,6 @@
 }
 
 /**
-* Slime
-**/
-.slime {
-	cursor: pointer;
-	position: absolute;
-	z-index: 10;
-	background-repeat: no-repeat;
-	background-size : 100% 100%;
-	width: 50; height: 50;
-}
-.slime.dead {
-	z-index: 9;
-	background-image: url("../img/game/interface/+1.png");
-}
-.slime.type1 {
-	background-image: url("../img/game/slime/slime1.png");
-}
-.slime.explode1 {
-	background-image: url("../img/game/slime/explode1.png");
-}
-.slime.type2 {
-	background-image: url("../img/game/slime/slime2.png");
-}
-.slime.explode2 {
-	background-image: url("../img/game/slime/explode2.png");
-}
-.slime.type3 {
-	background-image: url("../img/game/slime/slime3.png");
-}
-.slime.explode3 {
-	background-image: url("../img/game/slime/explode3.png");
-}
-.slime.type4 {
-	background-image: url("../img/game/slime/slime4.png");
-}
-.slime.explode4 {
-	background-image: url("../img/game/slime/explode4.png");
-}
-.slime.type5 {
-	background-image: url("../img/game/slime/slime5.png");
-}
-.slime.explode5 {
-	background-image: url("../img/game/slime/explode5.png");
-}
-.slime.type6 {
-	background-image: url("../img/game/slime/slime6.png");
-}
-.slime.explode6 {
-	background-image: url("../img/game/slime/explode6.png");
-}
-.slime.type7 {
-	background-image: url("../img/game/slime/slime7.png");
-}
-.slime.explode7 {
-	background-image: url("../img/game/slime/explode7.png");
-}
-
-/**
 * Utils
 **/
 .text {
@@ -134,4 +76,16 @@
 }
 .hitbox.exploser {
 	background-color: white;
+}
+
+.background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	
+	z-index: 11;
+	
+	pointer-events: none;
 }

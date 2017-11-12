@@ -132,3 +132,16 @@ ul.popup-menu > li:hover {
 .flag.en {
 	background-image: url("../img/menu/flag/en.jpg");
 }
+
+tipeee {
+	cursor: pointer;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-image: url("../img/menu/tipeee.png");
+	
+	width: 8vw;
+	height: 5vh;
+}

@@ -1,0 +1,146 @@
+/**
+* Slime
+**/
+.slime {
+	cursor: pointer;
+	position: absolute;
+	z-index: 10;
+	background-repeat: no-repeat;
+	background-size : 100% 100%;
+	width: 50; height: 50;
+}
+.slime.dead1 {
+	z-index: 9;
+	background-image: url("../img/game/interface/dead/+1.png");
+}
+.slime.dead2 {
+	z-index: 9;
+	background-image: url("../img/game/interface/dead/+2.png");
+}
+.slime.dead3 {
+	z-index: 9;
+	background-image: url("../img/game/interface/dead/+3.png");
+}
+.slime.dead5 {
+	z-index: 9;
+	background-image: url("../img/game/interface/dead/+5.png");
+}
+.slime.type1.genre1 {
+	background-image: url("../img/game/slime/classique/pink.png");
+}
+.slime.type1.genre2 {
+	background-image: url("../img/game/slime/army/pink.png");
+}
+.slime.type1.genre3 {
+	background-image: url("../img/game/slime/lunette/pink.png");
+}
+.slime.type1.genre4 {
+	background-image: url("../img/game/slime/livre/pink.png");
+}
+.slime.explode1 {
+	background-image: url("../img/game/slime/explode/pink.png");
+}
+
+.slime.type2.genre1 {
+	background-image: url("../img/game/slime/classique/orange.png");
+}
+.slime.type2.genre2 {
+	background-image: url("../img/game/slime/army/orange.png");
+}
+.slime.type2.genre3 {
+	background-image: url("../img/game/slime/lunette/orange.png");
+}
+.slime.type2.genre4 {
+	background-image: url("../img/game/slime/livre/orange.png");
+}
+.slime.explode2 {
+	background-image: url("../img/game/slime/explode/orange.png");
+}
+
+.slime.type3.genre1 {
+	background-image: url("../img/game/slime/classique/blue.png");
+}
+.slime.type3.genre2 {
+	background-image: url("../img/game/slime/army/blue.png");
+}
+.slime.type3.genre3 {
+	background-image: url("../img/game/slime/lunette/blue.png");
+}
+.slime.type3.genre4 {
+	background-image: url("../img/game/slime/livre/blue.png");
+}
+.slime.explode3 {
+	background-image: url("../img/game/slime/explode/blue.png");
+}
+
+.slime.type4.genre1 {
+	background-image: url("../img/game/slime/classique/green.png");
+}
+.slime.type4.genre2 {
+	background-image: url("../img/game/slime/army/green.png");
+}
+.slime.type4.genre3 {
+	background-image: url("../img/game/slime/lunette/green.png");
+}
+.slime.type4.genre4 {
+	background-image: url("../img/game/slime/livre/green.png");
+}
+.slime.explode4 {
+	background-image: url("../img/game/slime/explode/green.png");
+}
+
+.slime.type5.genre1 {
+	background-image: url("../img/game/slime/classique/violet.png");
+}
+.slime.type5.genre2 {
+	background-image: url("../img/game/slime/army/violet.png");
+}
+.slime.type5.genre3 {
+	background-image: url("../img/game/slime/lunette/violet.png");
+}
+.slime.type5.genre4 {
+	background-image: url("../img/game/slime/livre/violet.png");
+}
+.slime.explode5 {
+	background-image: url("../img/game/slime/explode/violet.png");
+}
+
+.slime.type6.genre1 {
+	background-image: url("../img/game/slime/classique/yellow.png");
+}
+.slime.type6.genre2 {
+	background-image: url("../img/game/slime/army/yellow.png");
+}
+.slime.type6.genre3 {
+	background-image: url("../img/game/slime/lunette/yellow.png");
+}
+.slime.type6.genre4 {
+	background-image: url("../img/game/slime/livre/yellow.png");
+}
+.slime.explode6 {
+	background-image: url("../img/game/slime/explode/yellow.png");
+}
+
+.slime.type7.genre1 {
+	background-image: url("../img/game/slime/classique/red.png");
+}
+.slime.type7.genre2 {
+	background-image: url("../img/game/slime/army/red.png");
+}
+.slime.type7.genre3 {
+	background-image: url("../img/game/slime/lunette/red.png");
+}
+.slime.type7.genre4 {
+	background-image: url("../img/game/slime/livre/red.png");
+}
+.slime.explode7 {
+	background-image: url("../img/game/slime/explode/red.png");
+}
+
+.slime.genre5 {
+	background-image: url("../img/game/slime/special/gold.png");
+}
+.slime.genre5.dead1 {
+	z-index: 9;
+	background-image: url("../img/game/interface/dead/pactole.png") !important;
+}

@@ -5,8 +5,9 @@ define(["jquery",
         "text!app/template/game/game.html",
         "text!app/template/game/end.html",
         "app/view/game/cinematiqueView",
-        "app/data/slimes"],
-function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
+        "app/data/slimes",
+        "app/data/genres"],
+function($, _, Utils, page, endPage, CinematiqueView, Slimes, Genres) {
 	'use strict';
 
 	return function(parent, Textes, Mediatheque) {
@@ -14,23 +15,26 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 			this.didactitiel = 1;
 		    this.forcePop = "1";
 		    this.randomPop = false;
+		    this.firstTime = true;
 		    
 		    this.el = $("#app");
 			this.Textes = Textes;
 			this.mediatheque = Mediatheque;
 			this.kongregateUtils = parent.kongregateUtils;
-			this.firstTime = true;
 			this.point = -1;
 			this.nbrSlime = -1;
 			this.maxSlime = 1000;
-			this.randMax = 100;
 			this.multiplicateur = 1;
 			this.degats = 1;
 			this.slimeKilled = 0;
 			this.delays = [];
 			this.endGame = false;
 			
+			this.nextPopDelay = 100;
+			this.nextPop = 0;
+			
 			this.maxType = 8;
+			this.maxGenre = 6;
 			
 			this.combo = {
 					type : null,
@@ -53,7 +57,7 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 			this.cinematique.load();
 			
 			$("#maxSlime").html(this.maxSlime);
-			this.addPoint();
+			this.addPoint(1);
 			this.addSlime(1);
 			this.loop();
 		};
@@ -66,69 +70,97 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 		    		this.mediatheque.play("/music/slimer.mp3");
 		    		this.firstTime = false;
 		    	}
+		    	this.checkLimit();
+		    	
 		    	var rand = 0;
-		    	if (this.randomPop) rand = Utils.rand(0, this.randMax);
-    		    if (this.forcePop) {
-    		    	rand = parseInt(this.randMax/2);
-    		    }
-    		    //console.log("rand : ", rand, this.randMax, parseInt(this.randMax/2));
-    		    if(rand == parseInt(this.randMax/2)) {
-    		        var x = Utils.rand(10, 90);
-    		        var y = Utils.rand(10, 90);
+		    	if (this.randomPop) {
+		    		if (this.nextPop > 0) this.nextPop--;
+		    		else  {
+		    			var rander = Utils.rand(2, 6);
+		    			rand = Utils.rand(0, rander);
+		    		}
+		    	}
+    		    if(rand == 1 || this.forcePop) {
+    		    	var type = Utils.rand(1, this.maxType);
+    		        var genre = Utils.rand(1, this.maxGenre);
+    		        var genreData = Genres.get(genre);
     		        
-    		        if (this.nbrSlime > this.maxSlime) this.gameOver();
-    		        
-    		        var slime = $("<div></div>");
-    		        
-    		        var type = Utils.rand(1, this.maxType);
-    		        if (this.forcePop) {
-    		        	type = this.forcePop;
-    		        	this.forcePop = null;
+    		        var chance = 0;
+    		        if (genreData.rarete) {
+    		        	chance = Utils.rand(0, genreData.rarete);
     		        }
-    		        slime.addClass("slime type"+type);
-    		        slime.attr("type", type);
-    		        var slimeData = Slimes.get(type);
-    		        
-    		        var maxLife = 3;
-    		        if (slimeData.life) maxLife = slimeData.life;
-    		        
-    		        slime.attr("maxLife", maxLife);
-    		        slime.attr("life", maxLife);
-    		        slime.css({
-    		            left : x + "%",
-    		            top : y + "%"
-    		        });
-    		        
-    		        this.addSlime(1);
-    		        $(".game").append(slime);
-    		        
-    		        if (this.didactitiel > 0) $(".cible").css({
-    		    		left: (x-0.3) + "%",
-		        		top : (y-0.3) + "%"
-		        	});
-    		        
-    		        slime.click(function(e) {
-    		        	e.preventDefault();
-    		        	if (!slime.attr("type")) return
-    		        	if (that.didactitiel > 0) that.didactitiel++;
-    		        	if (that.didactitiel > 5) that.didactitiel = 0;
-    		        	
-    		        	if (that.randomPop) that.randMax -= 5;
-    		        	if (that.randMax < 10) that.randMax = 10;
-    		        	
-    		        	that.mediatheque.playSound("zouip.mp3");
-    		        	if (that.delays["boom"]>0 && type == 7) that.explodeSlime($(this));
-    		        	else that.hurtSlime($(this));
-    		        });
+    		    	
+    		        if (chance == 0) {
+	    		    	if (!this.forcePop) {
+	    		    		this.addPoint(-1);
+	    		    		this.nextPop = this.nextPopDelay;
+	    		    	}
+	    		        var x = Utils.rand(10, 90);
+	    		        var y = Utils.rand(10, 90);
+	    		        
+	    		        if (this.nbrSlime > this.maxSlime) this.gameOver();
+	    		        
+	    		        var slime = $("<div></div>");
+	    		        
+	    		        if (this.forcePop) {
+	    		        	type = this.forcePop;
+	    		        	genre = 1;
+	    		        	genreData = Genres.get(genre);
+	    		        	this.forcePop = null;
+	    		        }
+	    		        slime.addClass("slime");
+	    		        slime.addClass("type"+type);
+	    		        slime.addClass("genre"+genre);
+	    		        
+	    		        slime.attr("type", type);
+	    		        slime.attr("genre", genre);
+	    		        
+	    		        var maxLife = 3;
+	    		        if (genreData.life) maxLife = genreData.life;
+	    		        if (genreData.limit) {
+	    		        	slime.attr("limit", genreData.limit);
+	    		        }
+	    		        
+	    		        slime.attr("maxLife", maxLife);
+	    		        slime.attr("life", maxLife);
+	    		        slime.css({
+	    		            left : x + "%",
+	    		            top : y + "%"
+	    		        });
+	    		        
+	    		        this.addSlime(1);
+	    		        $(".game").append(slime);
+	    		        
+	    		        if (this.didactitiel > 0) $(".game .cible").css({
+	    		    		left: (x-0.3) + "%",
+			        		top : (y-0.3) + "%"
+			        	});
+	    		        
+	    		        slime.click(function(e) {
+	    		        	e.preventDefault();
+	    		        	if (!slime.attr("type")) return
+	    		        	if (that.didactitiel > 0) that.didactitiel++;
+	    		        	if (that.didactitiel > 5) that.didactitiel = 0;
+	    		        	
+	    		        	if (that.nextPopDelay > 50) that.nextPopDelay-=5;
+	    		        	else if (that.nextPopDelay > 30) that.nextPopDelay-=20;
+	    		        	else if (that.nextPopDelay > 10) that.nextPopDelay-=2;
+	    		        	else if (that.nextPopDelay > 5) that.nextPopDelay-=1;
+	    		        	
+	    		        	that.mediatheque.playSound("zouip.mp3");
+	    		        	if (that.delays["boom"]>0 && type == 7) that.explodeSlime($(this));
+	    		        	else that.hurtSlime($(this));
+	    		        });
+    		        }
     		    }
     		    
     		    if (this.didactitiel > 0) {
-    		    	$(".cible").show();
+    		    	$(".game .cible").show();
 		        	$(".didactitiel").show();
 		        	$(".didactitiel .text").html(this.Textes.get("didactitiel"+this.didactitiel));
-		        	if (this.didactitiel >= 4) $(".cible").hide();
+		        	if (this.didactitiel >= 4) $(".game .cible").hide();
 		        }else {
-		        	$(".cible").hide();
+		        	$(".game .cible").hide();
 		        	$(".didactitiel").hide();
 		        }
     		    
@@ -147,12 +179,20 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 		    	if (this.delays[index] > 0) {
 		    		this.delays[index]--;
 		    	}else if (this.delays[index] ==0) {
-		    		$(".buffs ."+index).remove();
+		    		$(".game .buffs ."+index).remove();
+		    		$(".background").removeClass(index);
 		    		//L'action a délais se termine
 		    		this.delays[index] = -1;
 		    		switch(index) {
 		    			case "bonus-x2":
 		    				this.multiplicateur = 1;
+		    				break;
+		    			case "freeze":
+		    				this.nextPopDelay /= 10;
+		    				break;
+		    			case "speed":
+		    				this.nextPopDelay *= 10;
+		    				if (this.nextPopDelay <=0) this.nextPopDelay = 5;
 		    				break;
 		    		}
 		    	}
@@ -160,24 +200,28 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 		};
 		
 		this.addBuff = function(index) {
-			$(".buffMessage").attr("class", "buffMessage h-center v-center "+index);
-			$(".buffMessage").css({
+			$(".game .buffMessage").attr("class", "buffMessage h-center v-center "+index);
+			$(".game .buffMessage").css({
 				transform: "scale(1)"
 			});
 			setTimeout(function() {
-				$(".buffMessage").css({
+				$(".game .buffMessage").css({
 					transform: "scale(0)"
 				});
 				setTimeout(function() {
-					$(".buffMessage").attr("class", "buffMessage h-center v-center");
+					$(".game .buffMessage").attr("class", "buffMessage h-center v-center");
 				}, 500);
 			}, 600);
 			
-			if ($(".buffs ."+index).length == 0) {
+			if ($(".game .buffs ."+index).length == 0) {
 				var li = $("<li></li>");
 				li.addClass(index);
 				li.attr("title", Textes.get(index));
-				$(".buffs").append(li);
+				$(".game .buffs").append(li);
+			}
+			
+			if (!$(".game .background").hasClass(index)) {
+				$(".game .background").addClass(index);
 			}
 		};
 		
@@ -190,7 +234,7 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
             
             if (killClass) {
             	life = 0;
-            	element.attr("class", "slime "+killClass+element.attr("type"));
+            	element.attr("class", "slime " + killClass+element.attr("type"));
             }else {
 	            element.addClass("shake");
 	            setTimeout(function() {
@@ -200,16 +244,19 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
             if (life <= 0) {
             	this.slimeKilled++;
             	this.kongregateUtils.score("SlimeKill", this.slimeKilled);
-                this.addPoint();
+                this.addPoint(maxLife);
                 this.addSlime(-1);
                 this.checkCombo(element);
+                
+                var genre = Genres.get(element.attr("genre"));
+                if (genre.deadAction) genre.deadAction(this, element);
                 
                 if (this.didactitiel) this.randomPop = true;
             	if (this.nbrSlime == 0) this.forcePop = Utils.rand(1, this.maxType);
             	
             	element.removeClass("type" + element.attr("type"));
             	element.removeAttr("type");
-            	element.addClass("dead");
+            	element.addClass("dead"+maxLife);
             	element.css({
 	                "transform": "scale(1)"
 	            });
@@ -225,7 +272,7 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
                     top : y + "%",
 	                "transform": "scale("+(life/maxLife)+")"
 	            });
-	            if (this.didactitiel > 0) $(".cible").css({
+	            if (this.didactitiel > 0) $(".game .cible").css({
 		    		left: (x-0.3) + "%",
 	        		top : (y-0.3) + "%"
 	        	});
@@ -237,7 +284,7 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 			var w = slime.width(); var h = slime.height();
 			
 			var that = this;
-			$(".slime").each(function() {
+			$(".game .slime").each(function() {
 				var x2 = $(this).position().left; var y2 = $(this).position().top;
 				if (x2 + w > x1 - w && 
 					x2 < x1 + w && 
@@ -247,7 +294,24 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 				}
 			});
 			
-			slime.hurtSlime(element, "explode");
+			this.hurtSlime(slime, "explode");
+		};
+		
+		this.checkLimit = function() {
+			var that = this;
+			$(".game .slime[limit]").each(function() {
+				var limit = parseInt($(this).attr("limit"));
+				limit--;
+				if (limit == 0) {
+					var element = $(this);
+					element.fadeOut(1000, function() {
+						that.addSlime(-1);
+						element.remove();
+	            	});
+				}else {
+					$(this).attr("limit", limit);
+				}
+			});
 		};
 		
 		this.checkCombo = function(element) {
@@ -270,8 +334,12 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes) {
 			}
 		};
 		
-		this.addPoint = function() {
-			this.point += this.multiplicateur;
+		this.addPoint = function(incr) {
+			if (!incr) incr = 1;
+			if (incr < 0) this.point += incr;
+			else this.point += incr*this.multiplicateur;
+			
+			if (this.point < 0) this.point = 0;
 			this.kongregateUtils.score("Point", this.point);
 			$("#hit").html(this.point);
 		};

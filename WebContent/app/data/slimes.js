@@ -21,6 +21,12 @@ define(["jquery"], function($){
 		"3" : {
 			type : "blue",
 			action : function(game) {
+				game.kongregateUtils.score("Freeze", 1);
+				if (!game.delays["freeze"] || game.delays["freeze"] <= 0) {
+					game.nextPopDelay *= 10;
+					game.delays["freeze"] = 200;
+					game.addBuff("freeze");
+				}
 			}
 		},
 		"4" : {
@@ -41,7 +47,12 @@ define(["jquery"], function($){
 		"6" : {
 			type : "yellow",
 			action : function(game) {
-				
+				game.kongregateUtils.score("Speed", 1);
+				if (!game.delays["speed"] || game.delays["speed"] <= 0) {
+					game.nextPopDelay /= 10;
+					game.delays["speed"] = 200;
+					game.addBuff("speed");
+				}
 			}
 		},
 		"7" : {

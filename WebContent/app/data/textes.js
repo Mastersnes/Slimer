@@ -88,6 +88,14 @@ define(["jquery"], function($){
 			fr : "Boom ! les rouges explosent !",
 			en : "Boom ! The reds explode !"
 		},
+		"freeze" : {
+			fr : "Freeze ! les slimes apparaissent moins vite !",
+			en : "Freeze ! Slimes appear slower !"
+		},
+		"speed" : {
+			fr : "Speed ! les slimes apparaissent plus vite !",
+			en : "Speed ! Slimes appear faster !"
+		},
 		"end0" : {
 			fr : "F&eacute;licitation, vous avez termin&eacute; le jeu avec : <span id='point'></span> Points",
 			en : "Congratulations, you won with : <span id='point'></span> Points"

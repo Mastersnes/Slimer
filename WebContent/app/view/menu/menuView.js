@@ -67,6 +67,9 @@ function($, _, Utils, Kongregate, Textes, Mediatheque, page, GameView, OptionVie
 			$("#login").click(function() {
 				that.kongregateUtils.login();
 			});
+			$("tipeee").click(function() {
+				window.open("https://www.tipeee.com/les-jeux-de-bebel", "_blank");
+			});
 		};
 		
 		this.newGame = function() {

@@ -22,6 +22,12 @@
 .buffMessage.boom {
 	background-image: url("../img/game/buffMessage/boom.png");
 }
+.buffMessage.freeze {
+	background-image: url("../img/game/buffMessage/freeze.png");
+}
+.buffMessage.speed {
+	background-image: url("../img/game/buffMessage/speed.png");
+}
 
 .buffs {
 	position: absolute;
@@ -47,4 +53,15 @@
 }
 .buffs .boom {
 	background-image: url("../img/game/buffs/boom.png");
+}
+.buffs .freeze {
+	background-image: url("../img/game/buffs/freeze.png");
+}
+.buffs .speed {
+	background-image: url("../img/game/buffs/speed.png");
+}
+
+.background.freeze {
+	background-image: url("../img/game/back/freeze.png");
+	opacity: 0.7;
 }
