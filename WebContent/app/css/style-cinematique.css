@@ -10,6 +10,11 @@
 	background-size : 100% 100%;
 	transition:all 0.5s ease;
 }
+#cinematique .skip {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
 
 /**
 * Intro

@@ -15,7 +15,7 @@ define(["jquery"], function($){
 		* Permet de charger les sons
 		**/
 		this.load = function(key) {
-			var sound = new Audio("app/"+key); 
+			var sound = new Audio("app/"+key);
 			if (key.indexOf("music") > -1) {
 				sound.volume=0.5;
 				sound.addEventListener('ended', function() {

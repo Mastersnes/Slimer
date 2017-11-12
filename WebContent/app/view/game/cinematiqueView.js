@@ -58,6 +58,10 @@ function($, _, Utils) {
 			$(this.el).click(function() {
 				that.next();
 			});
+			$(this.el).find("#skip").click(function() {
+				that.current = that.max;
+				that.next();
+			});
 		};
 		
 		this.isEmpty = function() {

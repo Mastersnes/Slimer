@@ -44,6 +44,10 @@ define(["jquery"], function($){
 			fr : "Musiques",
 			en : "Musics"
 		},
+		"skip" : {
+			fr : "Passer >>>",
+			en : "Skip >>>"
+		},
 		"followUs" : {
             fr : "Suivez-nous sur <a target='_blank' alt='Facebook' href='https://www.facebook.com/lesjeuxdebebel/'>Facebook</a> ou <a target='_blank' alt='Twitter' href='http://twitter.com/lesjeuxdebebel'>Twitter</a>.",
             en : "Follow us on <a target='_blank' alt='Facebook' href='https://www.facebook.com/lesjeuxdebebel/'>Facebook</a> or <a target='_blank' alt='Twitter' href='http://twitter.com/lesjeuxdebebel'>Twitter</a>."
