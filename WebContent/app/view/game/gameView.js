@@ -16,6 +16,7 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes, Genres) {
 		    this.forcePop = "1";
 		    this.randomPop = false;
 		    this.firstTime = true;
+		    this.soundTick = 1;
 		    
 		    this.el = $("#app");
 			this.Textes = Textes;
@@ -147,7 +148,9 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes, Genres) {
 	    		        	else if (that.nextPopDelay > 10) that.nextPopDelay-=2;
 	    		        	else if (that.nextPopDelay > 5) that.nextPopDelay-=1;
 	    		        	
-	    		        	that.mediatheque.playSound("zouip.mp3");
+	    		        	that.mediatheque.playSound("zouip.mp3", that.soundTick);
+	    		        	that.soundTick++; if (that.soundTick > 3) that.soundTick = 1;
+	    		        	
 	    		        	if (that.delays["boom"]>0 && type == 7) that.explodeSlime($(this));
 	    		        	else that.hurtSlime($(this));
 	    		        });

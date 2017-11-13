@@ -14,7 +14,8 @@ define(["jquery"], function($){
 		/**
 		* Permet de charger les sons
 		**/
-		this.load = function(key) {
+		this.load = function(key, id) {
+		    if (!id) id = "";
 			var sound = new Audio("app/"+key);
 			if (key.indexOf("music") > -1) {
 				sound.volume=0.5;
@@ -24,32 +25,33 @@ define(["jquery"], function($){
 				}, false);
 			}
 			
-			this.sounds[key] = sound;
+			this.sounds[key+id] = sound;
 		};
 		
 		/**
 		 * Joue le son et le creer s'il n'existe pas
 		 */
-		this.play = function(key) {
+		this.play = function(key, id) {
 			if (!key) return;
-			if (!this.sounds[key]) {
+			if (!id) id = "";
+			if (!this.sounds[key+id]) {
 				console.log("Never pass!");
-				this.load(key);
+				this.load(key, id);
 			}
 			try {
-				this.sounds[key].play();
+				this.sounds[key+id].play();
 			}catch (e) {
-				this.load(key);
+				this.load(key, id);
 			}
 		};
 
 		/**
 		 * Joue le son et le creer s'il n'existe pas
 		 */
-		this.playSound = function(key) {
+		this.playSound = function(key, id) {
 			if (!key) return;
 			console.log("playSound : ", key);
-			this.play("sounds/"+key);
+			this.play("sounds/"+key, id);
 		};
 		
 		this.stopSound = function(key) {
