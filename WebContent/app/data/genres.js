@@ -30,6 +30,17 @@ define(["jquery"], function($){
 				game.kongregateUtils.score("GoldSlime", 1);
 				game.addPoint(100);
 			}
+		},
+		
+		"6" : {
+			type : "boss1",
+			life : 1,
+			boss : 1,
+			appair : 100,
+			deadAction : function(game) {
+				game.kongregateUtils.score("Boss1Killed", 1);
+				game.addPoint(500);
+			}
 		}
 	};
 	

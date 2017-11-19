@@ -13,26 +13,29 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes, Genres) {
 	return function(parent, Textes, Mediatheque) {
 		this.init = function(parent, Textes, Mediatheque) {
 			this.didactitiel = 1;
-		    this.forcePop = "1";
+			this.endGame = false;
+		    
+			this.forcePop = "1";
 		    this.randomPop = false;
 		    this.firstTime = true;
+		    this.nextPopDelay = 100;
+			this.nextPop = 0;
+		    
 		    this.soundTick = 1;
 		    
 		    this.el = $("#app");
 			this.Textes = Textes;
 			this.mediatheque = Mediatheque;
 			this.kongregateUtils = parent.kongregateUtils;
+			
 			this.point = -1;
 			this.nbrSlime = -1;
 			this.maxSlime = 1000;
+			
 			this.multiplicateur = 1;
 			this.degats = 1;
 			this.slimeKilled = 0;
 			this.delays = [];
-			this.endGame = false;
-			
-			this.nextPopDelay = 100;
-			this.nextPop = 0;
 			
 			this.maxType = 8;
 			this.maxGenre = 6;
@@ -42,6 +45,8 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes, Genres) {
 					time : 0,
 					nbTotal : 0
 			};
+			
+			this.bossNumber = 0;
 			
 			this.render();
 		};
@@ -89,6 +94,9 @@ function($, _, Utils, page, endPage, CinematiqueView, Slimes, Genres) {
     		        var chance = 0;
     		        if (genreData.rarete) {
     		        	chance = Utils.rand(0, genreData.rarete);
+    		        }
+    		        if (genreData.boss == this.bossNumber) {
+    		        	
     		        }
     		    	
     		        if (chance == 0) {
