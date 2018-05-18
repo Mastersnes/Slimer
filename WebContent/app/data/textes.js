@@ -6,7 +6,7 @@ define(["jquery"], function($){
 		 */
 		"bienvenue" : {
 			fr : "Bienvenue",
-			en : "Wellcome"
+			en : "Welcome"
 		},
 		"guest" : {
 			fr : "Invité",
